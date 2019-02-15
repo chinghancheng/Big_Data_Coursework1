@@ -1,9 +1,0 @@
-mapreduce/MyLoopingMapReduceJob$MyReducer.class
-mapreduce/WordCount_v0.class
-mapreduce/MyLoopingMapReduceJob$MyMapper.class
-spark/WordCount_v0.class
-mapreduce/MyLoopingMapReduceJob.class
-utils/ISO8601.class
-mapreduce/MySimpleMapReduceJob$MyReducer.class
-mapreduce/MySimpleMapReduceJob.class
-mapreduce/MySimpleMapReduceJob$MyMapper.class
