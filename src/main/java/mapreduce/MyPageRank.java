@@ -5,10 +5,9 @@ import mapreduce.job1.mapper;
 import mapreduce.job1.inputFormat;
 import mapreduce.job2.secondMapper;
 import mapreduce.job2.secondReducer;
-
+import mapreduce.job3.thirdMapper;
 
 import java.io.IOException;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.IntWritable;
@@ -23,13 +22,11 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.fs.Path;
 import java.lang.Integer;
 import org.apache.hadoop.io.FloatWritable;
-
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -43,8 +40,10 @@ public class MyPageRank extends Configured implements Tool {
 
     public int run(String[] args) throws Exception {
         String inPath = args[0];
+        String outPath = args[1];
+        String time = args[3];
 
-        boolean isCompleted = job1_Func(inPath, "iter00");
+        boolean isCompleted = job1_Func(inPath, "iter00", time);
         if(!isCompleted) return 1;
 
         int numOfLoops = Integer.parseInt(args[2]);
@@ -61,12 +60,17 @@ public class MyPageRank extends Configured implements Tool {
 
         }
 
-        return 0;
+        isCompleted = job3_Func(ResultPath, outPath);
 
+        if (!isCompleted) return 1;
+        return 0;
     }
 
-    public boolean job1_Func(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
-        Job job1 = Job.getInstance(getConf(), "job1");
+    public boolean job1_Func(String inputPath, String outputPath, String time) throws IOException, ClassNotFoundException, InterruptedException {
+        Configuration conf = new Configuration();
+        conf.set("ISO_8601", time);
+
+        Job job1 = Job.getInstance(conf, "job1");
 
         job1.setJarByClass(MyPageRank.class);
 
@@ -108,8 +112,22 @@ public class MyPageRank extends Configured implements Tool {
         return job2.waitForCompletion(true);
 
     }
-//    public boolean job3_Func(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
-//
-//    }
+    private boolean job3_Func(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
+        Job job3 = Job.getInstance(getConf(), "job3");
+        job3.setJarByClass(MyPageRank.class);
+
+        job3.setOutputKeyClass(Text.class);
+        job3.setOutputValueClass(FloatWritable.class);
+
+        job3.setMapperClass(thirdMapper.class);
+
+        FileInputFormat.setInputPaths(job3, new Path(inputPath));
+        FileOutputFormat.setOutputPath(job3, new Path(outputPath));
+
+        job3.setInputFormatClass(TextInputFormat.class);
+        job3.setOutputFormatClass(TextOutputFormat.class);
+
+        return job3.waitForCompletion(true);
+    }
 
 }

@@ -1,8 +1,15 @@
 package mapreduce.job1;
 
+import java.util.*;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+import org.apache.hadoop.conf.Configuration;
 
 import java.io.IOException;
 import java.nio.charset.CharacterCodingException;
@@ -16,6 +23,14 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String titles ;
         String outlink;
+        String[] outlinkSet = null;
+        String timestampOfRevision;
+        String date;
+        boolean isRepeted = false;
+
+        Configuration conf = context.getConfiguration();
+        String userISO_8601 = conf.get("ISO_8601");
+
 
         int start = value.find("REVISION");
         for (int i = 0; i < 3; i++) {
@@ -27,11 +42,30 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
         titles = Text.decode(value.getBytes(), start, end - start);
         Text target_article_title = new Text(titles);
 
+        start = value.find(" ", start+1);
+        end = value.find(" ", start+1);
+
+        timestampOfRevision = Text.decode(value.getBytes(), start, end - start);
+
+        long userTime = 0;
+        long recordTime = 0;
+
+        try {
+            userTime = utils.ISO8601.toTimeMS(userISO_8601);
+            recordTime = utils.ISO8601.toTimeMS(timestampOfRevision);
+        } catch (IndexOutOfBoundsException e) {
+            throw new ParseException("Invalid length", 0);
+        }
+//        long a = utils.ISO8601.toTimeMS("2008-01-03T00:00:00Z");
+
+        if(recordTime > userTime)
+            return;
+
         start = value.find("MAIN");
         int mark = value.find("TALK");
+        int run = 0;
 
         while (end + 1 < mark) {
-
             start = value.find(" ", start+1);
             end = value.find(" ", start+1);
             if (end > mark)
@@ -40,47 +74,43 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
             start += 1;
 
             outlink = Text.decode(value.getBytes(), start, end - start);
-            context.write(target_article_title, new Text(outlink));
+
+            //check self-loop
+            if(outlink == target_article_title.toString())
+                continue;
+
+            //check same outlink
+            for(int i = 0;i < outlinkSet.length; i++ ){
+                if(outlinkSet[i] == outlink)
+                    isRepeted = true;
+            }
+
+            if(!isRepeted){
+                outlinkSet[run] = outlink;
+                context.write(target_article_title, new Text(outlink));
+                run++;
+            }
+            isRepeted = false;
 
         }
 
     }
+
+//    public static long toTimeMS(final String iso8601string) throws ParseException {
+//        String s = iso8601string.replace("Z", "+00:00");
+//        Date date;
+//
+//        try {
+//            s = s.substring(0, 22) + s.substring(23); // to get rid of the ":"
+//            date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(s);
+//
+//        } catch (IndexOutOfBoundsException e) {
+//            throw new ParseException("Invalid length", 0);
+//        }
+//        return date.getTime();
+//    }
 }
 
-//    private String[] parseTitle(Text value) throws CharacterCodingException {
-//        String[] titles = new String[1];
-//
-//
-//        int start = value.find("REVISION");
-//        for(int i = 0; i < 3; i++){
-//            int start = value.find(" ", start);
-//        }
-//        int end = value.find(" ", start);
-//        start += 1;
-//
-//        titles[0] = Text.decode(value.getBytes(), start, end-start);
-//        Text target_article_title = new Text(titles[0]);
-//
-//        start = value.find("MAIN");
-//        mark = value.find("TALK");
-//
-//        while(end + 1 < mark){
-//
-//            start = value.find(" ", start);
-//            end = value.find(" ", start);
-//            if(end > mark)
-//                end = value.find("\t", start);
-//
-//            start += 1;
-//
-//            outlink = Text.decode(value.getBytes(), start, end-start);
-//            context.write(target_article_title, new Text(outlink));
-//
-//        }
-//
-//    }
-//}
-//
 //    String record = value.toString();
 //    String[] title_name= record.split("\r");
 //

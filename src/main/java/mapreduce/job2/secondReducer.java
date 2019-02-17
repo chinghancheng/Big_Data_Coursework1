@@ -22,13 +22,8 @@ public class secondReducer extends Reducer<Text, Text, Text, Text> {
 
         Text key = new Text(page.toString());
 
-        // For each otherPage:
-        // - check control characters
-        // - calculate pageRank share <rank> / count(<links>)
-        // - add the share to sumShareOtherPageRanks
         for (Text value : values){
             record = value.toString();
-//            context.write(key, new Text(record));
 
             if(record.equals("!")) {
                 isPageExisting = true;
@@ -40,13 +35,6 @@ public class secondReducer extends Reducer<Text, Text, Text, Text> {
             }
 
             else{
-
-//                firstSpaceIndex = value.find(" ");
-//                SecondSpaceIndex = value.find(" ", firstSpaceIndex+1);
-//
-//                float pageRank = Text.decode(value.getBytes(), firstSpaceIndex+1, SecondSpaceIndex-(firstSpaceIndex+1));
-
-
                 splitRecord = record.split("\t");
 
                 float pageRank = Float.valueOf(splitRecord[1]);

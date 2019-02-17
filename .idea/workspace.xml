@@ -2,25 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faf32ffa-f0ec-4c5d-9c21-00e570d6a54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mapreduce/MyPageRank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/MyLoopingMapReduceJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/MyLoopingMapReduceJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/MySimpleMapReduceJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/MySimpleMapReduceJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/WordCount_v0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/WordCount_v0.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/job1/RecordReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/job1/MyRecordReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/job1/inputFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/job1/inputFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/MyPageRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/MyPageRank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/job1/reducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/job1/reducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MyLoopingMapReduceJob$MyMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MyLoopingMapReduceJob$MyReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MyLoopingMapReduceJob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MySimpleMapReduceJob$MyMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MySimpleMapReduceJob$MyReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MySimpleMapReduceJob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/WordCount_v0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/uog-bigdata-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/uog-bigdata-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/job2/secondReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/job2/secondReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapreduce/job3/thirdMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapreduce/job3/thirdMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ISO8601.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ISO8601.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/MyPageRank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/job1/MyRecordReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapreduce/job1/MyRecordReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/job1/mapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/job1/reducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/job2/secondMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/job2/secondReducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapreduce/job3/thirdMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spark/WordCount_v0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/ISO8601.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/ISO8601.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/uog-bigdata-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,20 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/MyPageRank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/MyRecordReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+            <state relative-caret-position="346">
+              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,23 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/reducer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+            <state relative-caret-position="237">
+              <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,8 +56,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/inputFormat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state relative-caret-position="360">
+              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/MyRecordReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/ISO8601.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="34" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,9 +108,14 @@
         <option value="$PROJECT_DIR$/src/main/java/mapreduce/MyLoopingMapReduceJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapreduce/job1/inputFormat.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapreduce/job1/RecordReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mapreduce/job1/MyRecordReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mapreduce/job2/secondMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapreduce/job1/reducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mapreduce/job2/secondReducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mapreduce/job3/thirdMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapreduce/MyPageRank.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/ISO8601.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java" />
       </list>
     </option>
   </component>
@@ -126,10 +136,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="202" />
     <option name="y" value="28" />
-    <option name="width" value="889" />
-    <option name="height" value="985" />
+    <option name="width" value="1011" />
+    <option name="height" value="1016" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -137,14 +146,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="uog-bigdata" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="uog-bigdata" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="uog-bigdata" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".settings" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="uog-bigdata" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -181,16 +198,26 @@
               <item name="mapreduce" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="job1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="uog-bigdata" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="utils" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550268837744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550434447127" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -224,11 +251,16 @@
       <workItem from="1550143913226" duration="44000" />
       <workItem from="1550244093918" duration="1550000" />
       <workItem from="1550247510997" duration="14979000" />
+      <workItem from="1550269078421" duration="446000" />
+      <workItem from="1550320078312" duration="8927000" />
+      <workItem from="1550336955978" duration="15212000" />
+      <workItem from="1550397672614" duration="17635000" />
+      <workItem from="1550420630596" duration="13814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36460000" />
+    <option name="totallyTimeSpent" value="92494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -242,7 +274,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1018" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29113248" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2857906" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -251,7 +283,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.13568985" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.345496" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -266,7 +298,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.16185898" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.18963675" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
@@ -283,51 +315,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/WordCount_v1.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/WordCount_v1.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/WordCount_v0.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/MySimpleMapReduceJob.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/MyLoopingMapReduceJob.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job2/secondReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/WordCount_v0.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="323">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding>
-            <element signature="e#0#1381#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/MySimpleMapReduceJob.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job3/thirdMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="88" lean-forward="true" selection-end-line="88" />
+        <state relative-caret-position="150">
+          <caret line="10" column="79" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="79" />
           <folding>
-            <element signature="e#0#3523#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/MyLoopingMapReduceJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="125" column="17" lean-forward="true" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/inputFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/reducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        <state relative-caret-position="390">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job2/secondMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="60" lean-forward="true" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -336,18 +361,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/MyRecordReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+        <state relative-caret-position="75">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/inputFormat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+        <state relative-caret-position="360">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -356,8 +381,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/MyPageRank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="346">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/ISO8601.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapreduce/job1/mapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

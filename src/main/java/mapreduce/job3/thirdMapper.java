@@ -24,8 +24,8 @@ public class thirdMapper extends Mapper<LongWritable, Text, Text, FloatWritable>
 
     private String[] formatTransfer(LongWritable key, Text value) throws CharacterCodingException {
         String[] pageRankPair = new String[2];
-        int pageTabIndex = value.find(" ");
-        int rankTabIndex = value.find(" ", pageTabIndex + 1);
+        int pageTabIndex = value.find("\t");
+        int rankTabIndex = value.find("\t", pageTabIndex + 1);
 
         // no tab after rank (when there are no links)
         int lenth;
