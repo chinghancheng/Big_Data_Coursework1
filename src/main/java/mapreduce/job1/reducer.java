@@ -10,7 +10,6 @@ public class reducer extends Reducer<Text, Text, Text, Text> {
 
 
     public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        String page = key.toString() + "\t";
         String initial_score = "1.0\t";
 
         boolean first_link = true;
@@ -22,7 +21,7 @@ public class reducer extends Reducer<Text, Text, Text, Text> {
             first_link = false;
         }
 
-        context.write(key, new Text(page + initial_score));
+        context.write(key, new Text(initial_score));
 
     }
 }

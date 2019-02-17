@@ -7,15 +7,20 @@ import java.io.IOException;
 
 public class secondReducer extends Reducer<Text, Text, Text, Text> {
 
-    private static final float dampingFactor = 0.85F;
+    private static final float dampingFactor = 0.85f;
 
     @Override
     public void reduce(Text page, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         boolean isPageExisting = false;
         String[] splitRecord;
         float sumPageRanks = 0;
+        float newRank = 0;
         String outlinks = "";
         String record;
+        int firstSpaceIndex =0;
+        int SecondSpaceIndex = 0;
+
+        Text key = new Text(page.toString());
 
         // For each otherPage:
         // - check control characters
@@ -23,29 +28,38 @@ public class secondReducer extends Reducer<Text, Text, Text, Text> {
         // - add the share to sumShareOtherPageRanks
         for (Text value : values){
             record = value.toString();
+//            context.write(key, new Text(record));
 
             if(record.equals("!")) {
                 isPageExisting = true;
-                continue;
+
             }
 
-            if(record.startsWith("|")){
+            else if(record.startsWith("|")){
                 outlinks = "\t"+record.substring(1);
-                continue;
             }
 
-            splitRecord = record.split("\t");
+            else{
 
-            float pageRank = Float.valueOf(splitRecord[1]);
-            int countOutLinks = Integer.valueOf(splitRecord[2]);
+//                firstSpaceIndex = value.find(" ");
+//                SecondSpaceIndex = value.find(" ", firstSpaceIndex+1);
+//
+//                float pageRank = Text.decode(value.getBytes(), firstSpaceIndex+1, SecondSpaceIndex-(firstSpaceIndex+1));
 
-            sumPageRanks += (pageRank/countOutLinks);
+
+                splitRecord = record.split("\t");
+
+                float pageRank = Float.valueOf(splitRecord[1]);
+                int countOutLinks = Integer.valueOf(splitRecord[2]);
+
+                sumPageRanks += (pageRank/countOutLinks);
+
+            }
         }
 
         if(!isPageExisting) return;
-        float newRank = dampingFactor * sumPageRanks + (1-dampingFactor);
-        String pageWithTab = page + "\t";
+        newRank =  dampingFactor * sumPageRanks + (1 - dampingFactor);
 
-        context.write(page, new Text(pageWithTab + newRank + outlinks));
+        context.write(key, new Text(newRank + outlinks));
     }
 }
