@@ -11,10 +11,10 @@ public class secondMapper extends Mapper<LongWritable, Text, Text, Text> {
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         int sourcePageTabIndex = value.find("\t");
-        int sourceRankTabIndex = value.find("\t", sourcePageTabIndex+1);
+        int sourceRankTabIndex = value.find("\t", sourcePageTabIndex+8);
 
         String sourcePage = Text.decode(value.getBytes(), 0, sourcePageTabIndex);
-        String sourcePageWithRank = Text.decode(value.getBytes(), 0, sourceRankTabIndex+1);
+        String sourcePageWithRank = Text.decode(value.getBytes(), 0, sourceRankTabIndex+8);
 
         // Mark page as an Existing page (ignore red wiki-links)
         context.write(new Text(sourcePage), new Text("!"));
@@ -23,7 +23,7 @@ public class secondMapper extends Mapper<LongWritable, Text, Text, Text> {
         if(sourceRankTabIndex == -1) return;
         //?????????????????????????????????????????????????????????????????
 
-        String outlinksOfSource = Text.decode(value.getBytes(), sourceRankTabIndex+1, value.getLength()-(sourceRankTabIndex+1));
+        String outlinksOfSource = Text.decode(value.getBytes(), sourceRankTabIndex+8, value.getLength()-(sourceRankTabIndex+8));
         String[] outlinkPages = outlinksOfSource.split(",");
         int numOfLinks = outlinkPages.length;
 

@@ -89,7 +89,7 @@ public class MyPageRank extends Configured implements Tool {
 
     }
     public boolean job2_Func(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
-        Job job2 = Job.getInstance(getConf());
+        Job job2 = Job.getInstance(getConf(),"job2");
 
         job2.setJarByClass(MyPageRank.class);
 

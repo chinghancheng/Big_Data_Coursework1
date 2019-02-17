@@ -16,7 +16,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import java.io.IOException;
 
 public class MyRecordReader extends RecordReader<LongWritable, Text> {
-    private static final byte[] recordSeparator = "\t\t\t".getBytes();
+    private static final byte[] recordSeparator = "\n\n".getBytes();
 
     private FSDataInputStream fsin;
     private long start, end;

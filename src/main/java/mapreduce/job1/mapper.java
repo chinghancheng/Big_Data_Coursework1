@@ -14,24 +14,38 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
     @Override
 
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String record = value.toString();
-        String[] title_name= record.split("\r");
+        String titles ;
+        String outlink;
 
-        String[] revision_content = title_name[0].split(" ");
-        String[] main_content = title_name[2].split(" ");
+        int start = value.find("REVISION");
+        for (int i = 0; i < 3; i++) {
+            start = value.find(" ", start+1);
+        }
+        int end = value.find(" ", start+1);
+        start += 1;
 
-        Text target_article_title = new Text(revision_content[3]);
+        titles = Text.decode(value.getBytes(), start, end - start);
+        Text target_article_title = new Text(titles);
 
-        int main_size = main_content.length;
-        for(int i = 0; i < main_size; i++){
-            if(main_content[i] == target_article_title.toString())
-                continue;
-            context.write(target_article_title, new Text(main_content[i]));
+        start = value.find("MAIN");
+        int mark = value.find("TALK");
+
+        while (end + 1 < mark) {
+
+            start = value.find(" ", start+1);
+            end = value.find(" ", start+1);
+            if (end > mark)
+                end = value.find("\n", start+1);
+
+            start += 1;
+
+            outlink = Text.decode(value.getBytes(), start, end - start);
+            context.write(target_article_title, new Text(outlink));
+
         }
 
-//        String[] titles = parseTitle(value);
-
     }
+}
 
 //    private String[] parseTitle(Text value) throws CharacterCodingException {
 //        String[] titles = new String[1];
@@ -50,11 +64,13 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
 //        start = value.find("MAIN");
 //        mark = value.find("TALK");
 //
-//        for(){
+//        while(end + 1 < mark){
 //
 //            start = value.find(" ", start);
 //            end = value.find(" ", start);
-//            if()
+//            if(end > mark)
+//                end = value.find("\t", start);
+//
 //            start += 1;
 //
 //            outlink = Text.decode(value.getBytes(), start, end-start);
@@ -63,4 +79,21 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
 //        }
 //
 //    }
-}
+//}
+//
+//    String record = value.toString();
+//    String[] title_name= record.split("\r");
+//
+//    String[] revision_content = title_name[0].split(" ");
+//    String[] main_content = title_name[2].split(" ");
+//
+//    Text target_article_title = new Text(revision_content[3]);
+//
+//    int main_size = main_content.length;
+//        for(int i = 0; i < main_size; i++){
+//        if(main_content[i] == target_article_title.toString())
+//        continue;
+//        context.write(target_article_title, new Text(main_content[i]));
+//        }
+//
+////        String[] titles = parseTitle(value);
