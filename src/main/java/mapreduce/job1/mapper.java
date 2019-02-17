@@ -18,15 +18,16 @@ import java.util.regex.Pattern;
 import org.apache.hadoop.io.IntWritable;
 
 public class mapper extends Mapper<LongWritable, Text, Text, Text> {
+//    private String[] outlinkSet;
     @Override
 
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String titles ;
         String outlink;
-        String[] outlinkSet = null;
         String timestampOfRevision;
         String date;
         boolean isRepeted = false;
+        List outlinkList = new ArrayList();
 
         Configuration conf = context.getConfiguration();
         String userISO_8601 = conf.get("ISO_8601");
@@ -53,8 +54,8 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
         try {
             userTime = utils.ISO8601.toTimeMS(userISO_8601);
             recordTime = utils.ISO8601.toTimeMS(timestampOfRevision);
-        } catch (IndexOutOfBoundsException e) {
-            throw new ParseException("Invalid length", 0);
+        } catch (ParseException e) {
+                e.printStackTrace();
         }
 //        long a = utils.ISO8601.toTimeMS("2008-01-03T00:00:00Z");
 
@@ -80,13 +81,20 @@ public class mapper extends Mapper<LongWritable, Text, Text, Text> {
                 continue;
 
             //check same outlink
-            for(int i = 0;i < outlinkSet.length; i++ ){
-                if(outlinkSet[i] == outlink)
-                    isRepeted = true;
+            if(run > 0){
+//                for(int i = 0;i < outlinkSet.length; i++ ){
+//                    if(outlinkSet[i] == outlink)
+//                        isRepeted = true;
+//                }
+                for(int i = 0;i < outlinkList.size(); i++ ){
+                    if(outlinkList.contains(outlink))
+                        isRepeted = true;
+                }
             }
 
             if(!isRepeted){
-                outlinkSet[run] = outlink;
+                outlinkList.add(outlink);
+//                outlinkSet[run] = outlink;
                 context.write(target_article_title, new Text(outlink));
                 run++;
             }
