@@ -20,10 +20,7 @@ public class secondMapper extends Mapper<LongWritable, Text, Text, Text> {
 
         String sourcePageWithRank = Text.decode(value.getBytes(), 0, sourceRankTabIndex+1);
 
-        // Mark page as an Existing page (ignore red wiki-links)
         context.write(new Text(sourcePage), new Text("!"));
-
-        // Skip pages with no links.???????????????????????????????????????????????
 
         String outlinksOfSource = Text.decode(value.getBytes(), sourceRankTabIndex+1, value.getLength()-(sourceRankTabIndex+1));
         String[] outlinkPages = outlinksOfSource.split(",");
@@ -34,7 +31,6 @@ public class secondMapper extends Mapper<LongWritable, Text, Text, Text> {
             context.write(new Text(outlinkPage), output);
         }
 
-        // Put the original links of the page for the reduce output
         context.write(new Text(sourcePage), new Text("|" + outlinksOfSource));
     }
 }

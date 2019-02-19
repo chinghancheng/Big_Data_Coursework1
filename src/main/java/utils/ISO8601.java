@@ -28,6 +28,7 @@ public final class ISO8601 {
 	public static long toTimeMS(final String iso8601string)
 			throws ParseException {
 		String s = iso8601string.replace("Z", "+00:00");
+
 		try {
 			s = s.substring(0, 22) + s.substring(23); // to get rid of the ":"
 		} catch (IndexOutOfBoundsException e) {
@@ -38,3 +39,8 @@ public final class ISO8601 {
 		return date.getTime();
 	}
 }
+
+//		if(iso8601string.substring(20) ==  "+0:00") // To handle special cases:"2007-09-21T17:46:13+0:00"
+//			s = iso8601string.replace("Z", "+0:00");
+//		else
+//			s = iso8601string.replace("Z", "+00:00");

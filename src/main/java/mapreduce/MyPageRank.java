@@ -109,6 +109,8 @@ public class MyPageRank extends Configured implements Tool {
         FileInputFormat.setInputPaths(job2, new Path(inputPath));
         FileOutputFormat.setOutputPath(job2, new Path(outputPath));
 
+        return job2.waitForCompletion(true);
+
     }
     private boolean job3_Func(String inputPath, String outputPath) throws IOException, ClassNotFoundException, InterruptedException {
         Job job3 = Job.getInstance(getConf(), "job3");
