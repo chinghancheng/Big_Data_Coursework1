@@ -2,6 +2,8 @@
 README
 ==============================================
 * We have separated the task into three processes of job, each of them includes mapper step and previous two with reducer parser. 
+## Job1
+-----------------------------------------------
 * In Job1, the latest records of article is filtered based on time_stamp
   * MyRecordReader.java: Splite the data file(.txt) into records are needed in later process.
   * mapper.java: 
@@ -33,22 +35,80 @@ README
     > 
       Key  | Values|
       --------- | --------|
-      article_title1  | time_stamp1 manin[i] |
-      article_title1  | time_stamp2 manin[j] |
-      article_title1  | time_stamp3 manin[k] |
+      article_title1  | time_stamp1 MAIN[i] |
+      article_title1  | time_stamp2 MAIN[j] |
+      article_title1  | time_stamp3 MAIN[k] |
+      article_title1  | time_stamp2 MAIN[l] |
     
-    * if time_stamp2 is the latest record, the output would be:
+    * if time_stamp2 is the latest record, the output of job1 would be:
     >
      Key  | Values|
      --------- | --------|
      article_title | PageRankScore time_stamp manin|
-     article_title1  | 1 manin[j] |
+     article_title1  | 1 MAIN[j] MAIN[l] |
      ex. article_title1  | 1 Matt_Lauer,San_Diego,Toy_Story_2,George_W._Bush... |
  * Generate the file iter00 as the result of job1.
- 
+
+## Job2
+----------------------------------------------- 
 * In Job2, 
-  Input '!' 
-     
+  * secondMapper.class
+     >
+         * Input '!' as the new value
+
+       Key  | Values|
+       --------- | --------|
+       article_title  | ! |   
+
+         * Input '|' as the new value
+     >  
+       Key  | Values|
+       --------- | --------|
+       article_title  | '|' MAINS | 
+
+         * Switch MAINS as key, article_title, PageRankScore as values
+     > 
+       Key  | Values|
+       --------- | --------|
+       MAIN | article_title, 1, PR(v)/L(v))
+  
+  * secondReducer.class
+    There are three types of condition:
+    - If '!' in value, nothing to do with.
+    - ElseIf '|' in value, L(v)='\t'MAINS.
+    - Else do the computation shown below.
+    
+    Title | RankScore | NumbersOfOutlink
+    --------- | --------| --------|
+    article_title1 | 1.0 | n1 |
+    article_title2 | 1.0 | n2 |
+    article_title3 | 1.0 | n3 |
+
+    > NewRankScore=0.15 + 0.85 * Sum(RankScore/NumbersOfOutlink)
+
+   * The output of job2 would be:
+
+     Key | Values
+     --------- | --------|
+     article_title1 | NewRankScore '\t'MAINS |
+
+* User can set the parameters of running times, in general, more running times can show more accuracy results of PR scores.
+* Generate the file iter** as the result of job2.
+
+## Job3
+-----------------------------------------------
+  * thirdMapper.class
+  Key | Values
+  --------- | --------|
+  article_title1 | NewRankScore |
+  * Generate the final file as the result of job3 in the structure above.
+  
+ 
+ 
+ 
+  
+  
+
 
       
       
