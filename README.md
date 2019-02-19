@@ -98,7 +98,7 @@ README
 
 ## Job3
 -----------------------------------------------
- * In Job3, the final result is gene  
+ * In Job3, the final result is generated as below.  
   * thirdMapper.class
   >
    Key | Values
