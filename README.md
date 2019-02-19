@@ -51,7 +51,8 @@ README
 
 ## Job2
 ----------------------------------------------- 
-* In Job2, 
+* In Job2, the PR formula shown below is applied for PR score cauculation, 
+  PR(u)=0.15 + 0.85 * Sum(PR(v)/L(v)), ∀v: ∃(v,u) ∈S, where L(v) is the number of out-links of page v.
   * secondMapper.class
      >
          * Input '!' as the new value
@@ -97,10 +98,12 @@ README
 
 ## Job3
 -----------------------------------------------
+ * In Job3, the final result is gene  
   * thirdMapper.class
-  Key | Values
-  --------- | --------|
-  article_title1 | NewRankScore |
+  >
+   Key | Values
+   --------- | --------|
+   article_title1 | NewRankScore |
   * Generate the final file as the result of job3 in the structure above.
   
  
