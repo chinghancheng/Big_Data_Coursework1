@@ -10,7 +10,12 @@ import java.util.stream.Collectors;
 import java.io.IOException;
 import java.util.Date;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class reducer extends Reducer<Text, Text, Text, Text> {
+    final Log log = LogFactory.getLog(reducer.class);
+
     public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         boolean isFirst = true;
         String initial_score = "1.0\t";
@@ -18,6 +23,7 @@ public class reducer extends Reducer<Text, Text, Text, Text> {
         Date latestDate = new Date();
 
         for (Text value : values) {
+            log.info("value is : " + value);
             int spaceIndex = value.find("\t");
             String temp = Text.decode(value.getBytes(), 0, spaceIndex);
             try {
@@ -28,10 +34,14 @@ public class reducer extends Reducer<Text, Text, Text, Text> {
                 else
                     if(latestDate.before(date))
                         latestDate = date;
+                context.write(key, new Text(temp));
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             isFirst = false;
+
+
         }
 
         for (Text value : values) {
@@ -52,7 +62,7 @@ public class reducer extends Reducer<Text, Text, Text, Text> {
             i++;
         }
 
-        context.write(key, new Text(initial_score));
+//        context.write(key, new Text(initial_score));
     }
 }
 
